@@ -1,0 +1,54 @@
+program Sine_Wave;
+uses
+	crt,graph;
+procedure Sin1(xc,yc,color: Integer);
+const
+	gx=20;
+    gy=10;
+var
+	x,y: Real;
+begin
+	repeat
+    	x:=0;
+        y:=Sin(x);
+        MoveTo(Round(xc+gx*x),Round(GetMaxY-(yc-gy*y)));
+        SetColor(color);
+        repeat
+        	x:=x+0.01;
+            y:=Sin(x);
+            LineTo(Round(xc+gx*x),Round(GetMaxY-(yc-gy*y)));
+        until x>10*PI;
+        yc:=yc+50;
+    until yc>600;
+end;
+procedure Sin2(xc,yc,color: Integer);
+const
+	gx=20;
+    gy=10;
+var
+	x,y: Real;
+begin
+	repeat
+    	x:=0;
+        y:=Sin(x);
+        MoveTo(Round(yc+gy*y),Round((xc+gx*x)));
+        SetColor(color);
+        repeat
+        	x:=x+0.01;
+            y:=Sin(x);
+            LineTo(Round(yc+gy*y),Round((xc+gx*x)));
+        until x>10*PI;
+        yc:=yc+50;
+    until yc>600;
+end;
+var
+	gd,gm: Integer;
+begin
+	gd:=Detect;
+    InitGraph(gd,gm,'');
+    if GraphResult<>0 then Halt;
+    Sin1(10,10,2);
+    Sin2(10,10,3);
+    ReadKey;
+	CloseGraph;
+end.
