@@ -1,12 +1,15 @@
-program Miz;
-uses
-	crt,graph;
-var
-	gd,gm: Integer;
-begin
-    gd:=Detect;
+
+Program Miz;
+
+Uses 
+crt,graph;
+
+Var 
+    gd,gm:   Integer;
+Begin
+    gd := Detect;
     InitGraph(gd,gm,'');
-    if GraphResult<>0 then Halt;
+    If GraphResult<>0 Then Halt;
     SetColor(1);
     SetFillStyle(1,14);
     Bar3D(120,300,100,400,10,TopOn);
@@ -17,7 +20,7 @@ begin
     FloodFill(405,350,1);
     Bar3D(200,230,180,330,10,TopOn);
     FloodFill(205,280,1);
-	Bar3D(480,230,460,330,10,TopOn);
+    Bar3D(480,230,460,330,10,TopOn);
     FloodFill(485,280,1);
     SetColor(2);
     Bar3D(100,290,400,310,90,TopOn);
@@ -29,10 +32,10 @@ begin
     Ellipse(300,200,0,360,30,10);
     Ellipse(300,200,0,360,25,7);
     Ellipse(300,250,180,360,20,7);
-	Line(270,200,280,250);
+    Line(270,200,280,250);
     Line(330,200,320,250);
     SetFillStyle(1,12);
-	FloodFill(320,240,12);
+    FloodFill(320,240,12);
     ReadKey;
     CloseGraph;
-end.
+End.

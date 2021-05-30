@@ -1,47 +1,51 @@
-program Mahtabi;
-uses Graph,CRT;
-procedure OffLump;
-begin
+
+Program Mahtabi;
+
+Uses Graph,CRT;
+Procedure OffLump;
+Begin
     SetFillStyle(SolidFill,BLACK);
     Bar(100,100,500,140);
-end;
-procedure OnFlash;
-var
-	i,h,d: Integer;
-begin
+End;
+Procedure OnFlash;
+
+Var 
+    i,h,d:   Integer;
+Begin
     SetColor(WHITE);
-	for i:=10 to 400-10 do
-    begin
-		h:=Random(40);
-    	d:=(40-h) DIV 2;
-        Line(100+i,100+d,100+i,100+d+h);
-    end;
+    For i:=10 To 400-10 Do
+        Begin
+            h := Random(40);
+            d := (40-h) Div 2;
+            Line(100+i,100+d,100+i,100+d+h);
+        End;
     Delay(Random(100));
     Bar(100,100,500,140);
     DElay(Random(10000));
-end;
-procedure OnLump;
-var
-	n,i: Integer;
-begin
-	OffLump;
+End;
+Procedure OnLump;
+
+Var 
+    n,i:   Integer;
+Begin
+    OffLump;
     SetLineStyle(SolidLn,0,NormWidth);
-	SetFillStyle(SolidFill,Black);
-    n:=Random(3)+3;
-    for i:=1 to n do
-    	OnFlash;
+    SetFillStyle(SolidFill,Black);
+    n := Random(3)+3;
+    For i:=1 To n Do
+        OnFlash;
     SetFillStyle(SolidFill,WHITE);
     Bar(100,100,500,140);
-end;
-procedure DrawLump;
-begin
-	Rectangle(99,99,501,141);
+End;
+Procedure DrawLump;
+Begin
+    Rectangle(99,99,501,141);
     SetFillStyle(SolidFill,LightGray);
     Bar(98,99,79,141);
     Bar(502,99,520,141);
     SetFillStyle(SolidFill,DarkGray);
     Bar(77,107,67,180);
-	Bar(523,107,533,180);
+    Bar(523,107,533,180);
     Bar(77,180,533,170);
     SetFillStyle(SolidFill,WHITE);
     Bar(220,170,310,167);
@@ -55,27 +59,28 @@ begin
     Bar(540,250,580,290);
     SetFillStyle(SolidFill,DarkGray);
     Bar(557,260,563,280);
-end;
-var
-	gd,gm: Integer;
-    c: Char;
-begin
-	gd:=DETECT;
+End;
+
+Var 
+    gd,gm:   Integer;
+    c:   Char;
+Begin
+    gd := DETECT;
     InitGraph(gd,gm,'');
-    if GraphResult<>0 then halt;
-      	Randomize;
+    If GraphResult<>0 Then halt;
+    Randomize;
     OutTextXY(100,300,'Press O to make lump On');
     OutTextXY(100,330,'Press F to make lump Off');
     OutTextXY(100,360,'Press ESC to exit');
     SetBkColor(BLACK);
     DrawLump;
     OffLump;
-    repeat
-    	c:=ReadKey;
-        case c of
-        	'o','O': OnLump;
-            'f','F': OffLump;
-        end;
-    until c=#27;
+    Repeat
+        c := ReadKey;
+        Case c Of 
+            'o','O':   OnLump;
+            'f','F':   OffLump;
+        End;
+    Until c=#27;
     CloseGraph;
-end.
+End.
