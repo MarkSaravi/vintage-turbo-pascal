@@ -12,7 +12,6 @@ Var
     x,y:   array [1..N] Of Integer;
 
 Procedure DrawNPoly;
-
 Var 
     i:   Integer;
 Begin
@@ -27,7 +26,6 @@ Begin
 End;
 
 Procedure CalcNewPoly;
-
 Var 
     i:   Integer;
     xt,yt:   array [1..N] Of Integer;

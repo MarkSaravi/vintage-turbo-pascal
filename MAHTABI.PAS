@@ -2,13 +2,14 @@
 Program Mahtabi;
 
 Uses Graph,CRT;
+
 Procedure OffLump;
 Begin
     SetFillStyle(SolidFill,BLACK);
     Bar(100,100,500,140);
 End;
-Procedure OnFlash;
 
+Procedure OnFlash;
 Var 
     i,h,d:   Integer;
 Begin
@@ -23,8 +24,8 @@ Begin
     Bar(100,100,500,140);
     DElay(Random(10000));
 End;
-Procedure OnLump;
 
+Procedure OnLump;
 Var 
     n,i:   Integer;
 Begin
@@ -37,6 +38,7 @@ Begin
     SetFillStyle(SolidFill,WHITE);
     Bar(100,100,500,140);
 End;
+
 Procedure DrawLump;
 Begin
     Rectangle(99,99,501,141);

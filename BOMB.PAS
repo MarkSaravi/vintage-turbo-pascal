@@ -19,8 +19,8 @@ Var
     ex:   Integer;
     dir:   Integer;
     color:   Integer;
-Procedure Explode;
 
+Procedure Explode;
 Var 
     i:   Integer;
 Begin
@@ -36,6 +36,7 @@ Begin
             Circle(SX+15,SY+15,ex);
         End;
 End;
+
 Procedure DrawTarget;
 Begin
     Rectangle(SX+1,SY+1,SX+30,SY+30);
@@ -45,8 +46,8 @@ Begin
     Line(SX+40,SY-11,SX+40,SY+20);
     Line(SX+30,SY+30,SX+40,SY+20);
 End;
-Procedure DrawRocket;
 
+Procedure DrawRocket;
 Begin
     SetColor(GREEN);
     SetBkColor(WHITE);
@@ -63,8 +64,8 @@ Begin
     GetImage(9,5,36,19,Rocket^);
     ClearDevice;
 End;
-Procedure DrawAirCraft;
 
+Procedure DrawAirCraft;
 Const 
     PXS1:   array [1..12] Of Integer =   (5,1,6,23,5,50,59,69,24,24,44,40);
     PYS1:   array [1..12] Of Integer =   (13,1,1,13,13,13,20,24,24,17,17,24);
@@ -95,8 +96,8 @@ Begin
     GetImage(0,0,70,25,AirCraft^);
     ClearDevice;
 End;
-Procedure MoveAirCraft;
 
+Procedure MoveAirCraft;
 Var 
     x,y:   Integer;
 Begin
@@ -110,8 +111,8 @@ Begin
     y := 100;
     PutImage(x,y,AirCraft^,XORPut);
 End;
-Procedure MoveRocket;
 
+Procedure MoveRocket;
 Var 
     x,y:   Integer;
 Begin

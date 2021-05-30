@@ -3,8 +3,8 @@ Program Ruller;
 
 Uses 
 crt,graph;
-Procedure r(xc,yc: Integer);
 
+Procedure r(xc,yc: Integer);
 Var 
     b,i :   Integer;
     ch:   string;

@@ -6,7 +6,6 @@ Var
     nstr:   string[5];
 
 Procedure naghale(xc,yc,r,n,color:integer);
-
 Var 
     x,y,a:   real;
 Begin
@@ -18,6 +17,7 @@ Begin
         a := a+pi/n;
     Until a>pi;
 End;
+
 Begin
     gd := detect;
     initgraph(gd,gm,'  ');

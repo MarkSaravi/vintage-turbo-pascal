@@ -6,8 +6,8 @@ Uses Graph,CRT;
 Var 
     ns:   Integer;
     sv:   array [1..100] Of Integer;
-Procedure DrawSectors;
 
+Procedure DrawSectors;
 Var 
     p,i,sa,ea,ma,x,y,tw,th:   Integer;
     s:   string;

@@ -2,8 +2,8 @@
 Program Normal_Prog;
 
 Uses Graph,CRT;
-Procedure Normal(xc,yc,gx,gy,color,ygap: Integer);
 
+Procedure Normal(xc,yc,gx,gy,color,ygap: Integer);
 Var 
     x,y,ox,oy:   Real;
 Begin

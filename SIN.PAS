@@ -3,8 +3,8 @@ Program Sine_Wave;
 
 Uses 
 crt,graph;
-Procedure Sin1(xc,yc,color: Integer);
 
+Procedure Sin1(xc,yc,color: Integer);
 Const 
     gx =   20;
     gy =   10;
@@ -25,8 +25,8 @@ Begin
         yc := yc+50;
     Until yc>600;
 End;
-Procedure Sin2(xc,yc,color: Integer);
 
+Procedure Sin2(xc,yc,color: Integer);
 Const 
     gx =   20;
     gy =   10;
