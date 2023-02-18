@@ -1,5 +1,5 @@
 
-Program Bomb;
+program Bomb;
 
 Uses Graph,CRT;
 

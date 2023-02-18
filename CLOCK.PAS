@@ -1,5 +1,5 @@
 
-Program Clock;
+program Clock;
 
 Uses Graph,CRT,Dos;
 

@@ -1,5 +1,5 @@
 
-Program Normal_Prog;
+program Normal_Prog;
 
 Uses Graph,CRT;
 

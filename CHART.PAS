@@ -1,5 +1,5 @@
 
-Program EllipseChart;
+program EllipseChart;
 
 Uses Graph,CRT;
 

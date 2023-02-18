@@ -1,5 +1,5 @@
 
-Program Ruller;
+program Ruller;
 
 Uses 
 crt,graph;

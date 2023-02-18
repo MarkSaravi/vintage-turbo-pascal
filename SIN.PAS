@@ -1,5 +1,5 @@
 
-Program Sine_Wave;
+program Sine_Wave;
 
 Uses 
 crt,graph;

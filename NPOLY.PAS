@@ -1,5 +1,5 @@
 
-Program N_Polygon;
+program N_Polygon;
 
 Uses Graph,CRT;
 

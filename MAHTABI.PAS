@@ -1,5 +1,5 @@
 
-Program Mahtabi;
+program Mahtabi;
 
 Uses Graph,CRT;
 

@@ -1,5 +1,5 @@
 
-Program Miz;
+program Miz;
 
 Uses 
 crt,graph;
