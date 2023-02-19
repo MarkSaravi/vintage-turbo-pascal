@@ -1,17 +1,17 @@
 
 program EllipseChart;
 
-Uses Graph,CRT;
+uses Graph,CRT;
 
-Var 
-    ns:   Integer;
-    sv:   array [1..100] Of Integer;
+var 
+    ns:   integer;
+    sv:   array [1..100] of integer;
 
-Procedure DrawSectors;
-Var 
-    p,i,sa,ea,ma,x,y,tw,th:   Integer;
+procedure DrawSectors;
+var 
+    p,i,sa,ea,ma,x,y,tw,th:   integer;
     s:   string;
-Begin
+begin
     SetBkColor(WHITE);
     SetFillStyle(SolidFill,BLUE);
     FillEllipse(320,300,300,150);
@@ -22,7 +22,7 @@ Begin
     p := 4;
     SetTextStyle(SmallFont,0,5);
     For i:=1 To ns Do
-        Begin
+        begin
             sa := ea;
             ea := ea+Round(sv[i]*3.6);
             ma := (ea+sa) Div 2;
@@ -39,24 +39,24 @@ Begin
             y := 240-Round(100*Sin(ma*PI/180));
             SetColor(BLUE);
             OutTextXY(x-tw Div 2,y-th Div 2,s)
-        End;
-End;
+        end;
+end;
 
-Var 
-    gd,gm:   Integer;
-    i:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+    i:   integer;
+begin
     ClrScr;
     Write('Enter Num. of Sectors : ');
     Readln(ns);
     For i:=1 To ns Do
-        Begin
+        begin
             Write('Sector #',i,' : ');
             Readln(sv[i]);
-        End;
+        end;
     gd := DETECT;
     InitGraph(gd,gm,'');
     If GraphResult<>0 Then halt;
     DrawSectors;
     CloseGraph;
-End.
+end.

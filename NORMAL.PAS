@@ -1,12 +1,12 @@
 
 program Normal_Prog;
 
-Uses Graph,CRT;
+uses Graph,CRT;
 
-Procedure Normal(xc,yc,gx,gy,color,ygap: Integer);
-Var 
+procedure Normal(xc,yc,gx,gy,color,ygap: integer);
+var 
     x,y,ox,oy:   Real;
-Begin
+begin
     ox := -3;
     x := ox;
     oy := Exp(-ox*ox/2)/Sqrt(2*PI);
@@ -26,13 +26,13 @@ Begin
         ox := x;
         oy := y;
     Until x>3;
-End;
+end;
 
-Var 
-    gd,gm:   Integer;
-    i,col:   Integer;
+var 
+    gd,gm:   integer;
+    i,col:   integer;
     nstate:   Boolean;
-Begin
+begin
     Randomize;
     gd := DETECT;
     InitGraph(gd,gm,'');
@@ -41,27 +41,27 @@ Begin
     col := 1;
     nstate := False;
     While Not KeyPressed Do
-        Begin
+        begin
             If nstate=True Then
                 Normal(320,240,i Div 3,i,col,i)
             Else
-                Begin
+                begin
                     SetColor(i);
                     Circle(320,240,i);
-                End;
+                end;
             col := Random(16)+1;
             i := i+1;
             If (nstate) And (i>150) Then
-                Begin
+                begin
                     nstate := Not nstate;
                     i := 10;
-                End;
+                end;
             If (Not nstate) And (i>200) Then
-                Begin
+                begin
                     nstate := Not nstate;
                     i := 10;
-                End;
-        End;
+                end;
+        end;
     Pause;
     CloseGraph;
-End.
+end.

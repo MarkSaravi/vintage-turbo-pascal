@@ -1,14 +1,14 @@
 
 program Ruller;
 
-Uses 
+uses 
 crt,graph;
 
-Procedure r(xc,yc: Integer);
-Var 
-    b,i :   Integer;
+procedure r(xc,yc: integer);
+var 
+    b,i :   integer;
     ch:   string;
-Begin
+begin
     b := 0;
     i := 0;
     SetColor(15);
@@ -27,11 +27,11 @@ Begin
         b := b+30;
         i := i+1;
     Until b>620;
-End;
+end;
 
-Var 
-    gd,gm:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+begin
     gd := Detect;
     InitGraph(gd,gm,'');
     If GraphResult<>0 Then Halt;
@@ -39,4 +39,4 @@ Begin
     r(2,350);
     Readkey;
     CloseGraph;
-End.
+end.

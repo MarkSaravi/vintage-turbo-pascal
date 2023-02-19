@@ -1,14 +1,14 @@
 
-Uses graph,crt;
+uses graph,crt;
 
-Var 
+var 
     gd,gm,b,i:   integer;
     nstr:   string[5];
 
-Procedure naghale(xc,yc,r,n,color:integer);
-Var 
+procedure naghale(xc,yc,r,n,color:integer);
+var 
     x,y,a:   real;
-Begin
+begin
     a := 0;
     setcolor(color);
     Repeat
@@ -16,9 +16,9 @@ Begin
         lineto(round(xc+r*cos(-a)),round(yc+r*sin(-a)));
         a := a+pi/n;
     Until a>pi;
-End;
+end;
 
-Begin
+begin
     gd := detect;
     initgraph(gd,gm,'  ');
     If graphresult <> 0 Then halt;
@@ -52,4 +52,4 @@ Begin
         i := i+1;
     Until b>280;
     ReadKey;
-End.
+end.

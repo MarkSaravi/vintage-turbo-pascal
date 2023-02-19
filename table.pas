@@ -1,12 +1,12 @@
 
 program Miz;
 
-Uses 
+uses 
 crt,graph;
 
-Var 
-    gd,gm:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+begin
     gd := Detect;
     InitGraph(gd,gm,'');
     If GraphResult<>0 Then Halt;
@@ -38,4 +38,4 @@ Begin
     FloodFill(320,240,12);
     ReadKey;
     CloseGraph;
-End.
+end.

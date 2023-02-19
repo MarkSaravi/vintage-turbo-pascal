@@ -1,79 +1,79 @@
 
 program N_Polygon;
 
-Uses Graph,CRT;
+uses Graph,CRT;
 
 Const 
     N =   8;
     XC =   320;
     YC =   240;
 
-Var 
-    x,y:   array [1..N] Of Integer;
+var 
+    x,y:   array [1..N] of integer;
 
-Procedure DrawNPoly;
-Var 
-    i:   Integer;
-Begin
+procedure DrawNPoly;
+var 
+    i:   integer;
+begin
     For i:=1 To N Do
-        Begin
+        begin
             If i=1 Then
                 MoveTo(x[i],y[i])
             Else
                 LineTo(x[i],y[i])
-        End;
+        end;
     LineTo(x[1],y[1]);
-End;
+end;
 
-Procedure CalcNewPoly;
-Var 
-    i:   Integer;
-    xt,yt:   array [1..N] Of Integer;
-Begin
+procedure CalcNewPoly;
+var 
+    i:   integer;
+    xt,yt:   array [1..N] of integer;
+begin
     For i:=1 To N-1 Do
-        Begin
+        begin
             xt[i] := (x[i]+x[i+1]) Div 2;
             yt[i] := (y[i]+y[i+1]) Div 2;
-        End;
+        end;
     xt[N] := (x[1]+x[N]) Div 2;
     yt[N] := (y[1]+y[N]) Div 2;
     For i:=1 To N Do
-        Begin
+        begin
             x[i] := xt[i];
             y[i] := yt[i];
-        End;
-End;
+        end;
+end;
 
-Var 
-    radius,color,i:   Integer;
-    alfa,dalfa:   Integer;
-    gd,gm:   Integer;
+var 
+    radius,color,i:   integer;
+    alfa,dalfa:   integer;
+    gd,gm:   integer;
 
-Begin
+begin
     gd := DETECT;
     InitGraph(gd,gm,'');
     If GraphResult<>0 Then halt;
     alfa := 0;
     While Not KeyPressed Do
-        Begin
+        begin
             ClearDevice;
             radius := 200;
             color := 1;
             alfa := alfa+10;
             dalfa := 360 Div N;
             For i:=1 To N Do
-                Begin
+                begin
                     x[i] := XC+Round(radius*cos(alfa*PI/180));
                     y[i] := YC+Round(radius*sin(alfa*PI/180));
                     alfa := alfa+dalfa;
-                End;
+                end;
             For i:=1 To 10 Do
-                Begin
+                begin
                     SetColor(i);
                     DrawNPoly;
                     CalcNewPoly;
-                End;
+                end;
             Delay(10000);
-        End;
+        end;
     CloseGraph;
-End.
+end.
