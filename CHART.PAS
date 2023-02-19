@@ -25,11 +25,11 @@ begin
         begin
             sa := ea;
             ea := ea+Round(sv[i]*3.6);
-            ma := (ea+sa) Div 2;
+            ma := (ea+sa) div 2;
             SetFillStyle(p,i+1);
             SetColor(i);
             Sector(320,240,sa,ea,300,150);
-            If p=4 Then p := 5
+            If p=4 then p := 5
             Else p := 4;
             Str(sv[i],s);
             s := s+'%';
@@ -38,7 +38,7 @@ begin
             x := 320+Round(100*Cos(ma*PI/180));
             y := 240-Round(100*Sin(ma*PI/180));
             SetColor(BLUE);
-            OutTextXY(x-tw Div 2,y-th Div 2,s)
+            OutTextXY(x-tw div 2,y-th div 2,s)
         end;
 end;
 
@@ -56,7 +56,7 @@ begin
         end;
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     DrawSectors;
     CloseGraph;
 end.

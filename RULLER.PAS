@@ -34,7 +34,7 @@ var
 begin
     gd := Detect;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then Halt;
+    If GraphResult<>0 then Halt;
     Rectangle(2,300,625,350);
     r(2,350);
     Readkey;

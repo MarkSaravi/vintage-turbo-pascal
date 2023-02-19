@@ -17,7 +17,7 @@ var
 begin
     For i:=1 To N Do
         begin
-            If i=1 Then
+            If i=1 then
                 MoveTo(x[i],y[i])
             Else
                 LineTo(x[i],y[i])
@@ -32,11 +32,11 @@ var
 begin
     For i:=1 To N-1 Do
         begin
-            xt[i] := (x[i]+x[i+1]) Div 2;
-            yt[i] := (y[i]+y[i+1]) Div 2;
+            xt[i] := (x[i]+x[i+1]) div 2;
+            yt[i] := (y[i]+y[i+1]) div 2;
         end;
-    xt[N] := (x[1]+x[N]) Div 2;
-    yt[N] := (y[1]+y[N]) Div 2;
+    xt[N] := (x[1]+x[N]) div 2;
+    yt[N] := (y[1]+y[N]) div 2;
     For i:=1 To N Do
         begin
             x[i] := xt[i];
@@ -52,7 +52,7 @@ var
 begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     alfa := 0;
     While Not KeyPressed Do
         begin
@@ -60,7 +60,7 @@ begin
             radius := 200;
             color := 1;
             alfa := alfa+10;
-            dalfa := 360 Div N;
+            dalfa := 360 div N;
             For i:=1 To N Do
                 begin
                     x[i] := XC+Round(radius*cos(alfa*PI/180));

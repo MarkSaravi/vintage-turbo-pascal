@@ -36,14 +36,14 @@ begin
     Randomize;
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     i := 10;
     col := 1;
     nstate := False;
     While Not KeyPressed Do
         begin
-            If nstate=True Then
-                Normal(320,240,i Div 3,i,col,i)
+            If nstate=True then
+                Normal(320,240,i div 3,i,col,i)
             Else
                 begin
                     SetColor(i);
@@ -51,12 +51,12 @@ begin
                 end;
             col := Random(16)+1;
             i := i+1;
-            If (nstate) And (i>150) Then
+            If (nstate) And (i>150) then
                 begin
                     nstate := Not nstate;
                     i := 10;
                 end;
-            If (Not nstate) And (i>200) Then
+            If (Not nstate) And (i>200) then
                 begin
                     nstate := Not nstate;
                     i := 10;

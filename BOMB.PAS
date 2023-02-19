@@ -27,7 +27,7 @@ begin
     For i:=1 To 3 Do
         begin
             ex := ex+dir;
-            If ex>50 Then
+            If ex>50 then
                 begin
                     dir := -1;
                     color := WHITE;
@@ -101,7 +101,7 @@ procedure MoveAirCraft;
 var 
     x,y:   integer;
 begin
-    If t>0 Then
+    If t>0 then
         begin
             x := Round((t-dt)*ASPEED);
             y := 100;
@@ -116,22 +116,22 @@ procedure MoveRocket;
 var 
     x,y:   integer;
 begin
-    If t>0 Then
+    If t>0 then
         begin
             x := 20+Round((t-dt)*RSPEED);
             y := Round(G*x*x/(2*RSPEED*RSPEED));
-            PutImage(x,120+y Div 10,Rocket^,XORPut);
+            PutImage(x,120+y div 10,Rocket^,XORPut);
         end;
     x := 20+Round(t*RSPEED);
     y := Round(G*x*x/(2*RSPEED*RSPEED));
-    If (x>SX)And(y>SY) Then
+    If (x>SX)And(y>SY) then
         begin
             SetFillStyle(SOLIDFILL,WHITE);
             Bar(SX-15,SY-15,SX+45,SY+35);
             blown := True
         end
     Else
-        PutImage(x,120+ y Div 10,Rocket^,XORPut);
+        PutImage(x,120+ y div 10,Rocket^,XORPut);
 end;
 
 var 
@@ -139,7 +139,7 @@ var
 begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt ;
+    If GraphResult<>0 then halt ;
     DrawRocket;
     DrawAirCraft;
     blown := false;
@@ -155,7 +155,7 @@ begin
     While (t<55) Do
         begin
             MoveAirCraft;
-            If Not blown Then
+            If Not blown then
                 MoveRocket
             Else
                 Explode;

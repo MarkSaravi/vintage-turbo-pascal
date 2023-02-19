@@ -44,16 +44,16 @@ begin
             y2 := Round(r*Sin(alfa));
             x3 := Round((r-20)*Cos(alfa));
             y3 := Round((r-20)*Sin(alfa));
-            If (i Mod 5)=0 Then
+            If (i Mod 5)=0 then
                 begin
                     SetLineStyle(SolidLn,0,ThickWidth);
                     Str(j,nstr);
                     tw := TextWidth(nstr);
                     th := TextHeight(nstr);
                     SetColor(Yellow);
-                    OutTextXY(300+x3-tw Div 2,250+y3-th Div 2,nstr);
+                    OutTextXY(300+x3-tw div 2,250+y3-th div 2,nstr);
                     j := j+1;
-                    If j>12 Then j := 1;
+                    If j>12 then j := 1;
                 end
             Else
                 SetLineStyle(SolidLn,0,NormWidth);
@@ -109,13 +109,13 @@ var
     begin
         SetTextStyle(SmallFont,0,7);
         Str(t,s);
-        If t<10 Then s := '0'+s;
+        If t<10 then s := '0'+s;
         tw := TextWidth(s);
         th := TextHeight(s);
         SetColor(RED);
         SetFillStyle(SolidFill,LightGreen);
         Bar3D(x,y,x+30,y+30,5,TopOn);
-        OutTextXY(x+16-tw Div 2,y+10-th Div 2,s);
+        OutTextXY(x+16-tw div 2,y+10-th div 2,s);
     end;
 begin
     GetTime(Hour,Min,Sec,Sec100);
@@ -130,7 +130,7 @@ var
 begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     DrawClock;
     While Not KeyPressed Do
         begin

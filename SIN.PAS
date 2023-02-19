@@ -53,7 +53,7 @@ var
 begin
     gd := Detect;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then Halt;
+    If GraphResult<>0 then Halt;
     Sin1(10,10,2);
     Sin2(10,10,3);
     ReadKey;

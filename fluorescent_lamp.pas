@@ -17,7 +17,7 @@ begin
     For i:=10 To 400-10 Do
         begin
             h := Random(40);
-            d := (40-h) Div 2;
+            d := (40-h) div 2;
             Line(100+i,100+d,100+i,100+d+h);
         end;
     Delay(Random(100));
@@ -69,7 +69,7 @@ var
 begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     Randomize;
     OutTextXY(100,300,'Press O to make lump On');
     OutTextXY(100,330,'Press F to make lump Off');

@@ -21,7 +21,7 @@ end;
 begin
     gd := detect;
     initgraph(gd,gm,'  ');
-    If graphresult <> 0 Then halt;
+    If graphresult <> 0 then halt;
     setcolor(14);
     arc(320,240,0,180,100);
     arc(320,240,0,180,50);
@@ -47,7 +47,7 @@ begin
     Repeat
         line(180+b,300,180+b,290);
         Str(i,nstr);
-        OutTextXY(182+b-TextWidth(nstr) DIV 2,280,nstr);
+        OutTextXY(182+b-TextWidth(nstr) div 2,280,nstr);
         b := b+45;
         i := i+1;
     Until b>280;
