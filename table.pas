@@ -1,15 +1,15 @@
 
-Program Miz;
+program Miz;
 
-Uses 
+uses 
 crt,graph;
 
-Var 
-    gd,gm:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+begin
     gd := Detect;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then Halt;
+    If GraphResult<>0 then Halt;
     SetColor(1);
     SetFillStyle(1,14);
     Bar3D(120,300,100,400,10,TopOn);
@@ -38,4 +38,4 @@ Begin
     FloodFill(320,240,12);
     ReadKey;
     CloseGraph;
-End.
+end.

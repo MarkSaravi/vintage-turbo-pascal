@@ -1,17 +1,17 @@
 
-Program EllipseChart;
+program EllipseChart;
 
-Uses Graph,CRT;
+uses Graph,CRT;
 
-Var 
-    ns:   Integer;
-    sv:   array [1..100] Of Integer;
+var 
+    ns:   integer;
+    sv:   array [1..100] of integer;
 
-Procedure DrawSectors;
-Var 
-    p,i,sa,ea,ma,x,y,tw,th:   Integer;
+procedure DrawSectors;
+var 
+    p,i,sa,ea,ma,x,y,tw,th:   integer;
     s:   string;
-Begin
+begin
     SetBkColor(WHITE);
     SetFillStyle(SolidFill,BLUE);
     FillEllipse(320,300,300,150);
@@ -22,14 +22,14 @@ Begin
     p := 4;
     SetTextStyle(SmallFont,0,5);
     For i:=1 To ns Do
-        Begin
+        begin
             sa := ea;
             ea := ea+Round(sv[i]*3.6);
-            ma := (ea+sa) Div 2;
+            ma := (ea+sa) div 2;
             SetFillStyle(p,i+1);
             SetColor(i);
             Sector(320,240,sa,ea,300,150);
-            If p=4 Then p := 5
+            If p=4 then p := 5
             Else p := 4;
             Str(sv[i],s);
             s := s+'%';
@@ -38,25 +38,25 @@ Begin
             x := 320+Round(100*Cos(ma*PI/180));
             y := 240-Round(100*Sin(ma*PI/180));
             SetColor(BLUE);
-            OutTextXY(x-tw Div 2,y-th Div 2,s)
-        End;
-End;
+            OutTextXY(x-tw div 2,y-th div 2,s)
+        end;
+end;
 
-Var 
-    gd,gm:   Integer;
-    i:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+    i:   integer;
+begin
     ClrScr;
     Write('Enter Num. of Sectors : ');
     Readln(ns);
     For i:=1 To ns Do
-        Begin
+        begin
             Write('Sector #',i,' : ');
             Readln(sv[i]);
-        End;
+        end;
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     DrawSectors;
     CloseGraph;
-End.
+end.

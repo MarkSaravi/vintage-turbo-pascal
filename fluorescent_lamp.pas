@@ -1,34 +1,34 @@
 
-Program Mahtabi;
+program Mahtabi;
 
-Uses Graph,CRT;
+uses Graph,CRT;
 
-Procedure OffLump;
-Begin
+procedure OffLump;
+begin
     SetFillStyle(SolidFill,BLACK);
     Bar(100,100,500,140);
-End;
+end;
 
-Procedure OnFlash;
-Var 
-    i,h,d:   Integer;
-Begin
+procedure OnFlash;
+var 
+    i,h,d:   integer;
+begin
     SetColor(WHITE);
     For i:=10 To 400-10 Do
-        Begin
+        begin
             h := Random(40);
-            d := (40-h) Div 2;
+            d := (40-h) div 2;
             Line(100+i,100+d,100+i,100+d+h);
-        End;
+        end;
     Delay(Random(100));
     Bar(100,100,500,140);
     DElay(Random(10000));
-End;
+end;
 
-Procedure OnLump;
-Var 
-    n,i:   Integer;
-Begin
+procedure OnLump;
+var 
+    n,i:   integer;
+begin
     OffLump;
     SetLineStyle(SolidLn,0,NormWidth);
     SetFillStyle(SolidFill,Black);
@@ -37,10 +37,10 @@ Begin
         OnFlash;
     SetFillStyle(SolidFill,WHITE);
     Bar(100,100,500,140);
-End;
+end;
 
-Procedure DrawLump;
-Begin
+procedure DrawLump;
+begin
     Rectangle(99,99,501,141);
     SetFillStyle(SolidFill,LightGray);
     Bar(98,99,79,141);
@@ -61,15 +61,15 @@ Begin
     Bar(540,250,580,290);
     SetFillStyle(SolidFill,DarkGray);
     Bar(557,260,563,280);
-End;
+end;
 
-Var 
-    gd,gm:   Integer;
-    c:   Char;
-Begin
+var 
+    gd,gm:   integer;
+    c:   char;
+begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     Randomize;
     OutTextXY(100,300,'Press O to make lump On');
     OutTextXY(100,330,'Press F to make lump Off');
@@ -79,10 +79,10 @@ Begin
     OffLump;
     Repeat
         c := ReadKey;
-        Case c Of 
+        case c of 
             'o','O':   OnLump;
             'f','F':   OffLump;
-        End;
+        end;
     Until c=#27;
     CloseGraph;
-End.
+end.

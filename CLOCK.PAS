@@ -1,25 +1,25 @@
 
-Program Clock;
+program Clock;
 
-Uses Graph,CRT,Dos;
+uses Graph,CRT,Dos;
 
-Procedure DrawClock;
+procedure DrawClock;
 
-Var 
-    i,a,b,j,tw,th:   Integer;
+var 
+    i,a,b,j,tw,th:   integer;
     r,alfa:   Real;
-    x1,y1,x2,y2,x3,y3:   Integer;
+    x1,y1,x2,y2,x3,y3:   integer;
     nstr:   String[10];
 
-    Procedure CalcR2;
-    Var 
+    procedure CalcR2;
+    var 
         k:   Real;
-    Begin
+    begin
         k := Sin(alfa)*Sin(alfa)*(a*a/b/b-1)+1;
         r := Sqrt(a*a/k);
-    End;
+    end;
 
-Begin
+begin
     SetBkColor(BLUE);
     SetFillStyle(SolidFill,LightGray);
     Bar3D(100,100,500,450,50,TopOn);
@@ -35,7 +35,7 @@ Begin
     b := 115;
     j := 3;
     For i:=0 To 59 Do
-        Begin
+        begin
             alfa := i*6*PI/180;
             CalcR2;
             x1 := Round((r-10)*Cos(alfa));
@@ -44,43 +44,43 @@ Begin
             y2 := Round(r*Sin(alfa));
             x3 := Round((r-20)*Cos(alfa));
             y3 := Round((r-20)*Sin(alfa));
-            If (i Mod 5)=0 Then
-                Begin
+            If (i Mod 5)=0 then
+                begin
                     SetLineStyle(SolidLn,0,ThickWidth);
                     Str(j,nstr);
                     tw := TextWidth(nstr);
                     th := TextHeight(nstr);
                     SetColor(Yellow);
-                    OutTextXY(300+x3-tw Div 2,250+y3-th Div 2,nstr);
+                    OutTextXY(300+x3-tw div 2,250+y3-th div 2,nstr);
                     j := j+1;
-                    If j>12 Then j := 1;
-                End
+                    If j>12 then j := 1;
+                end
             Else
                 SetLineStyle(SolidLn,0,NormWidth);
             SetColor(Cyan);
             Line(300+x1,250+y1,300+x2,250+y2);
-        End;
-End;
+        end;
+end;
 
-Procedure AdvanceClock;
-Var 
+procedure AdvanceClock;
+var 
     Hour,Min,Sec,Sec100:   Word;
-    Procedure AnalogClock;
-        Procedure DrawPointer(alfa,pl: Integer);
-        Var 
+    procedure AnalogClock;
+        procedure DrawPointer(alfa,pl: integer);
+        var 
             a:   Real;
-            x,y:   Integer;
-        Begin
+            x,y:   integer;
+        begin
             a := -alfa*PI/180;
             x := Round(pl*Cos(a));
             y := Round(pl*Sin(a));
             Line(300,250,300+x,250-y);
-        End;
+        end;
     Const 
         hl =   50;
         ml =   70;
         sl =   80;
-    Begin
+    begin
         SetColor(DarkGray);
         SetFillStyle(SolidFill,DarkGray);
         FillEllipse(300,250,sl+1,sl+1);
@@ -100,42 +100,42 @@ Var
         SetLineStyle(SolidLn,0,NormWidth);
         SetColor(RED);
         FillEllipse(300,250,10,10);
-    End;
+    end;
 
-    Procedure DigitalClock(x,y:Integer;t:Word);
-    Var 
-        tw,th:   Integer;
+    procedure DigitalClock(x,y:integer;t:Word);
+    var 
+        tw,th:   integer;
         s:   string;
-    Begin
+    begin
         SetTextStyle(SmallFont,0,7);
         Str(t,s);
-        If t<10 Then s := '0'+s;
+        If t<10 then s := '0'+s;
         tw := TextWidth(s);
         th := TextHeight(s);
         SetColor(RED);
         SetFillStyle(SolidFill,LightGreen);
         Bar3D(x,y,x+30,y+30,5,TopOn);
-        OutTextXY(x+16-tw Div 2,y+10-th Div 2,s);
-    End;
-Begin
+        OutTextXY(x+16-tw div 2,y+10-th div 2,s);
+    end;
+begin
     GetTime(Hour,Min,Sec,Sec100);
     DigitalClock(250,400,Hour);
     DigitalClock(280,400,Min);
     DigitalClock(310,400,Sec);
     AnalogClock;
-End;
+end;
 
-Var 
-    gd,gm:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+begin
     gd := DETECT;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then halt;
+    If GraphResult<>0 then halt;
     DrawClock;
     While Not KeyPressed Do
-        Begin
+        begin
             AdvanceClock;
             Delay(1000);
-        End;
+        end;
     CloseGraph;
-End.
+end.

@@ -1,17 +1,17 @@
 
-Program Sine_Wave;
+program Sine_Wave;
 
-Uses 
+uses 
 crt,graph;
 
-Procedure Sin1(xc,yc,color: Integer);
+procedure Sin1(xc,yc,color: integer);
 Const 
     gx =   20;
     gy =   10;
 
-Var 
+var 
     x,y:   Real;
-Begin
+begin
     Repeat
         x := 0;
         y := Sin(x);
@@ -24,16 +24,16 @@ Begin
         Until x>10*PI;
         yc := yc+50;
     Until yc>600;
-End;
+end;
 
-Procedure Sin2(xc,yc,color: Integer);
+procedure Sin2(xc,yc,color: integer);
 Const 
     gx =   20;
     gy =   10;
 
-Var 
+var 
     x,y:   Real;
-Begin
+begin
     Repeat
         x := 0;
         y := Sin(x);
@@ -46,16 +46,16 @@ Begin
         Until x>10*PI;
         yc := yc+50;
     Until yc>600;
-End;
+end;
 
-Var 
-    gd,gm:   Integer;
-Begin
+var 
+    gd,gm:   integer;
+begin
     gd := Detect;
     InitGraph(gd,gm,'');
-    If GraphResult<>0 Then Halt;
+    If GraphResult<>0 then Halt;
     Sin1(10,10,2);
     Sin2(10,10,3);
     ReadKey;
     CloseGraph;
-End.
+end.
